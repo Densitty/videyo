@@ -1,0 +1,10 @@
+{
+  "name": "videyo",
+  "version": "1.0.0",
+  "description": "a form of youtube clone written in Vanilla JS and powered by NodeJS",
+  "main": "index.js",
+  "author": "Densitty",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
