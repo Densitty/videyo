@@ -6,5 +6,14 @@
   "author": "Densitty",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "scripts": {
+    "build": "babel index.js -d dist",
+    "start": "npm run build && nodemon dist/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.0"
   }
 }
