@@ -8,12 +8,13 @@
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
   },
   "scripts": {
     "build": "babel init.js -d build",
     "prod": "npm run build && nodemon build/init.js",
-    "clean":"rm -rf build && build",
+    "clean": "rm -rf build && build",
     "start": "nodemon --exec node_modules/.bin/babel-node init.js"
   },
   "devDependencies": {

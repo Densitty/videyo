@@ -1,18 +1,19 @@
 import express from "express";
+import {
+  changePassword,
+  editProfile,
+  userDetail,
+} from "../controllers/userController";
 import routes from "../routes";
 
 const userRouter = express.Router();
 
-userRouter.get(routes.userDetail, (req, res) => {
-  res.send("<h2>User Details</h2>");
-});
+/* editProfile should come first so dt d server won't confuse the path with getting an id instead of a route (/edit-profile & /:id) */
+userRouter.get(routes.editProfile, editProfile);
 
-userRouter.get(routes.editProfile, (req, res) => {
-  res.send("<h2>User Edit</h2>");
-});
+userRouter.get(routes.changePassword, changePassword);
 
-userRouter.get(routes.changePassword, (req, res) => {
-  res.send("<h2>User Change Password</h2>");
-});
+// any routes with /:id should come last due to above line 11 comment
+userRouter.get(routes.userDetail(), userDetail);
 
 export default userRouter;

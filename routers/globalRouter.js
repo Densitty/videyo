@@ -1,30 +1,29 @@
 import express from "express";
+import {
+  getJoin,
+  postJoin,
+  login,
+  logout,
+  postLogin,
+  getLogin,
+} from "../controllers/userController";
+import { home, search } from "../controllers/videoController";
 import routes from "../routes";
 
 const globalRouter = express.Router();
 
-globalRouter.get(routes.home, (req, res) => {
-  res.send("<h1>Rush Hour</h1>");
-});
-globalRouter.get(routes.join, (req, res) => {
-  res.send("<h1>Join Videyo</h1>");
-});
-globalRouter.get(routes.search, (req, res) => {
-  res.send("<h1>Search Videos</h1>");
-});
-globalRouter.get(routes.login, (req, res) => {
-  res.send("<h1>Login</h1>");
-});
-globalRouter.get(routes.logout, (req, res) => {
-  res.send("<h1>Logout</h1>");
-});
+// sign up routes
+globalRouter.get(routes.join, getJoin);
+globalRouter.post(routes.join, postJoin);
+// login routes
+globalRouter.get(routes.login, getLogin);
+globalRouter.post(routes.login, postLogin);
 
-globalRouter.get(routes.videos, (req, res) => {
-  res.send("<h2>All Videos</h2>");
-});
+// home route
+globalRouter.get(routes.home, home);
 
-globalRouter.get(routes.users, (req, res) => {
-  res.send("<h2>All Users</h2>");
-});
+globalRouter.get(routes.search, search);
+
+globalRouter.get(routes.logout, logout);
 
 export default globalRouter;

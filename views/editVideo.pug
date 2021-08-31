@@ -1,0 +1,10 @@
+extends layouts/main
+
+block content 
+  .form-container
+        form(action=`/1/${routes.editVideo}`, method="get")
+            input(type="text", placeholder="Title", name="title", value="")
+            textarea(name="description", placeholder="Description")
+            button(type="submit") Update Video
+        a.form-container__link(href=routes.deleteVideo)
+            button.delete Delete Video
